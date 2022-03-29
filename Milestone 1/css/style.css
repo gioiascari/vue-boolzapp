@@ -3,3 +3,21 @@
   padding: 0;
   margin: 0;
 }
+.w_25 {
+  width: 50px;
+}
+._name h2 {
+  font-size: 15px;
+}
+.margin_0 {
+  margin: 0;
+}
+.light-circle {
+  height: 50px;
+  width: 50px;
+}
+.light-circle i {
+  padding-top: 8px;
+  padding-left: 8px;
+  color: blue;
+}

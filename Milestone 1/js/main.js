@@ -165,3 +165,10 @@ const contacts = [
     ],
   },
 ];
+
+const app = new Vue({
+  el: "#boolzap",
+  data: {
+    contacts,
+  },
+});
