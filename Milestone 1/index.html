@@ -85,15 +85,15 @@
             <div class="col-12 d-flex justify-content-start align-items-center">
               <div class="img-container align-items-center w_25 me-2">
                 <img
-                  src="img-bolzapp/avatar_io.jpg"
+                  :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
                   alt="img"
                   class="w-100 rounded-circle"
                 />
               </div>
               <div class="_name fs-6">
-                <h2>Ricevi notifiche di nuovi messaggi</h2>
+                <h2>{{item.name}}</h2>
 
-                <p class="margin_0">Attiva notifiche dekstop</p>
+                <p class="margin_0">Ultimo messaggio inviato</p>
               </div>
             </div>
           </div>
