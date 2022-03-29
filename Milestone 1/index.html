@@ -57,7 +57,7 @@
                 <i class="fa-solid fa-bell-slash"></i>
               </div>
               <div class="row">
-                <div class="col-12">
+                <div class="col-12 p-2">
                   <div class="_name fs-6">
                     <h2>Ricevi notifiche di nuovi messaggi</h2>
                     <a href="#" class="link-dark">
@@ -69,6 +69,34 @@
             </div>
           </div>
           <!--/SPAN BLUE-->
+          <div class="row margin_0">
+            <div class="col-12 p-2">
+              <input
+                type="text"
+                placeholder="Cerca o inizia una nuova chat"
+                class="w-100"
+              />
+            </div>
+          </div>
+          <div
+            class="row p-2 border border-dark"
+            v-for="(item, index) in contacts"
+          >
+            <div class="col-12 d-flex justify-content-start align-items-center">
+              <div class="img-container align-items-center w_25 me-2">
+                <img
+                  src="img-bolzapp/avatar_io.jpg"
+                  alt="img"
+                  class="w-100 rounded-circle"
+                />
+              </div>
+              <div class="_name fs-6">
+                <h2>Ricevi notifiche di nuovi messaggi</h2>
+
+                <p class="margin_0">Attiva notifiche dekstop</p>
+              </div>
+            </div>
+          </div>
         </div>
         <!--/PARTE SOFIA-->
         <!--PARTE MICHELE HEADER DESTRO-->
