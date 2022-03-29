@@ -28,10 +28,10 @@
   </head>
   <body>
     <div id="boolzap" class="container pt-3">
-      <div class="row">
-        <div class="col-4 bg-light">
+      <div class="row bg-light">
+        <div class="col-4">
           <!--PARTE SOFIA-->
-          <div class="row align-items-center p-2">
+          <div class="row align-items-center p-2 bg-sofia">
             <div class="col-6 d-flex justify-content-start align-items-center">
               <div class="img-container align-items-center w_25 me-2">
                 <img
@@ -52,7 +52,7 @@
           </div>
           <!--SPAN BLUE-->
           <div class="row">
-            <div class="col-12 bg-primary p-2 d-flex align-items-center">
+            <div class="col-12 bg-span p-2 d-flex align-items-center">
               <div class="light-circle bg-light rounded-circle p-2 me-2">
                 <i class="fa-solid fa-bell-slash"></i>
               </div>
@@ -69,20 +69,30 @@
             </div>
           </div>
           <!--/SPAN BLUE-->
+          <!--INPUT-->
           <div class="row margin_0">
             <div class="col-12 p-2">
-              <input
-                type="text"
-                placeholder="Cerca o inizia una nuova chat"
-                class="w-100"
-              />
+              <div class="row input_search">
+                <div class="input-group flex-nowrap col-sm-12 py-2">
+                  <span class="input-group-text bg-white">
+                    <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cerca o inizia una nuova chat"
+                  />
+                </div>
+              </div>
             </div>
           </div>
+          <!--/INPUT-->
+
           <div
-            class="row p-2 border border-dark"
+            class="row p-2 border border-secondary justify-content-space-between"
             v-for="(item, index) in contacts"
           >
-            <div class="col-12 d-flex justify-content-start align-items-center">
+            <div class="col-12 d-flex justify-space-between align-items-center">
               <div class="img-container align-items-center w_25 me-2">
                 <img
                   :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
@@ -93,14 +103,60 @@
               <div class="_name fs-6">
                 <h2>{{item.name}}</h2>
 
-                <p class="margin_0">Ultimo messaggio inviato</p>
+                <p class="margin_0 text-secondary">Ultimo messaggio inviato</p>
+              </div>
+              <div class="ora text-secondary">
+                <p>12:00</p>
               </div>
             </div>
           </div>
         </div>
         <!--/PARTE SOFIA-->
         <!--PARTE MICHELE HEADER DESTRO-->
-        <div class="col-8 bg-danger">lol</div>
+
+        <div class="col-8 bg-danger d-flex flex-column spaceBetween">
+          <div class="row align-items-center bg-sofia p-2">
+            <div class="col-6 d-flex">
+              <div class="img-container w_25 me-2">
+                <img
+                  src="img-bolzapp/avatar_1.jpg"
+                  alt="img"
+                  class="w-100 rounded-circle"
+                />
+              </div>
+              <div class="_name fs-6">
+                <h2>Michele</h2>
+
+                <p class="margin_0">Ultimo accesso oggi alle 12:00</p>
+              </div>
+            </div>
+            <div class="col-6 d-flex justify-content-end">
+              <i class="fa-solid fa-magnifying-glass text-secondary me-3"></i>
+              <i class="fa-solid fa-paperclip me-3 text-secondary"></i>
+              <i class="fa-solid fa-ellipsis-vertical me-3 text-secondary"></i>
+            </div>
+          </div>
+          <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
+          <div class="row bg-light p-2 justify-content-center">
+            <div class="col-6 w-100 align-items-center">
+              <div class="row input_search">
+                <div class="input-group col-12 py-2">
+                  <span class="input-group-text bg-white">
+                    <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+                  </span>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Cerca o inizia una nuova chat"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
+        </div>
+
+        <!--/PARTE MICHELE HEADER DESTRO-->
       </div>
     </div>
 

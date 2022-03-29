@@ -21,3 +21,12 @@
   padding-left: 8px;
   color: blue;
 }
+.bg-sofia {
+  background-color: #eaeaea;
+}
+.bg-span {
+  background-color: lightskyblue;
+}
+.spaceBetween {
+  justify-content: space-between;
+}
