@@ -148,15 +148,13 @@
           <!--Message-->
           <div class="row height p-3">
             <div class="col-12">
-              <div class="row justify-content-end mb-3">
-                <div class="col-4">
+              <div class="row mb-3 d-flex justify-content-center">
+                <div class="col-12">
                   <div
-                    class="message"
+                    class="d-flex flex-column"
                     v-for="(message,index) in contacts[active].messages"
                   >
-                    <div
-                      :class="message.status === received ? 'sent' : 'received'"
-                    >
+                    <div :class="message.status">
                       <p>{{message.message}}</p>
                       <p class="text-secondary">{{message.date}}</p>
                     </div>
