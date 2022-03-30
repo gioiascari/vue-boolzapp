@@ -59,8 +59,8 @@
               <div class="row">
                 <div class="col-12">
                   <div class="_name fs-6">
-                    <h2>Ricevi notifiche di nuovi messaggi</h2>
-                    <a href="#" class="link-dark">
+                    <h2 class="margin_0">Ricevi notifiche di nuovi messaggi</h2>
+                    <a href="#" class="link-secondary">
                       <p class="margin_0">Attiva notifiche dekstop</p>
                     </a>
                   </div>
@@ -123,7 +123,7 @@
         <!--/PARTE SOFIA-->
         <!--PARTE MICHELE HEADER DESTRO-->
 
-        <div class="col-8 bg-chat d-flex flex-column spaceBetween">
+        <div class="col-8 d-flex flex-column spaceBetween bg-dark">
           <div class="row align-items-center bg-sofia p-2">
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">
@@ -149,19 +149,18 @@
           <div class="row height p-3">
             <div class="col-12">
               <div class="row justify-content-end mb-3">
-                <div class="col-sm-4 sent">
-                  <p>Hai portato fuori il cane?</p>
-                </div>
-              </div>
-              <div class="row justify-content-end mb-3">
-                <div class="col-sm-4 sent">
-                  <p>Ricordati di stendere i panni</p>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-sm-4 received">
-                  <p>Tutto Fatto!</p>
+                <div class="col-4">
+                  <div
+                    class="message"
+                    v-for="(message,index) in contacts[active].messages"
+                  >
+                    <div
+                      :class="message.status === received ? 'sent' : 'received'"
+                    >
+                      <p>{{message.message}}</p>
+                      <p class="text-secondary">{{message.date}}</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -170,7 +169,7 @@
 
           <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
           <div class="row bg-light justify-content-center input_search">
-            <div class="col-12 input-group p_2 me-2">
+            <div class="col-12 input-group p-2 me-2">
               <span class="input-group-text bg-transparent border-0 w_25">
                 <i class="fa-regular fa-face-smile"></i>
               </span>

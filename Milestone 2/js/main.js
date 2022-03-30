@@ -171,6 +171,7 @@ const app = new Vue({
   el: "#boolzap",
   data: {
     contacts,
+    active: 0,
   },
   methods: {
     getLastMessage: function (item) {
