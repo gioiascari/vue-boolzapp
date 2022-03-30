@@ -179,8 +179,9 @@
               <input
                 type="text"
                 class="form-control fs-4"
+                v-model="valueText"
                 placeholder="Scrivi un messaggio"
-                @keyup.enter=""
+                @keyup.enter="addMessage(contacts[active].messages)"
               />
               <span class="input-group-text bg-transparent border-0">
                 <i class="fa-solid fa-microphone"></i>

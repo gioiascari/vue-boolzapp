@@ -173,6 +173,7 @@ const app = new Vue({
   data: {
     contacts,
     active: 0,
+    valueText: "",
   },
   methods: {
     //con questa funzione si riesce a vedere l'ultimo messaggio ricevuto, nella barra dei contatti
@@ -185,6 +186,24 @@ const app = new Vue({
     //al click su un'amico si visualizza anche la chat
     chatActive(index) {
       this.active = index;
+    },
+    addMessage(chatIndex) {
+      const now = new Date();
+      const current = now.getHours() + ":" + now.getMinutes();
+      chatIndex.push({
+        date: current,
+        message: this.valueText,
+        status: "sent",
+      });
+      setTimeout(() => {
+        const newReplyMessage = {
+          date: current,
+          message: "Ok",
+          status: "received",
+        };
+
+        this.contacts[this.active].messages.push(newReplyMessage);
+      }, 1000);
     },
   },
 });
