@@ -5,9 +5,11 @@
 }
 
 body {
-  background-color: darkgreen;
 }
-
+.bg-container {
+  background-color: darkgreen;
+  height: 200px;
+}
 .bg-chat {
   background-image: url("../img-bolzapp/mine.jpg");
 }
@@ -72,4 +74,7 @@ body {
 }
 .height {
   height: calc(100% - 154px);
+}
+.hover_gray:hover {
+  background-color: gainsboro;
 }

@@ -87,14 +87,15 @@
             </div>
           </div>
           <!--/INPUT-->
-
+          <!--LISTA CONTATTI-->
           <div
-            class="row p-2 border-top secondary"
+            class="row p-2 border-top secondary hover_gray"
             v-for="(item, index) in contacts"
+            @click="chatActive(index)"
           >
             <div class="col-12 d-flex spaceBetween">
               <div class="row align-items-center">
-                <div class="col-12 d-flex justify-content-center">
+                <div class="col-12 d-flex">
                   <div class="img-container d-flex align-items-center">
                     <img
                       :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
@@ -120,21 +121,23 @@
             </div>
           </div>
         </div>
-        <!--/PARTE SOFIA-->
-        <!--PARTE MICHELE HEADER DESTRO-->
+        <!--/LISTA CONTATTI-->
 
+        <!--/PARTE SOFIA-->
+        <!--PARTE CHAT CENTRALE-->
+        <!--Informazione chat contatto-->
         <div class="col-8 d-flex flex-column spaceBetween bg-chat">
           <div class="row align-items-center bg-sofia p-2">
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">
                 <img
-                  src="img-bolzapp/avatar_1.jpg"
+                  :src=" 'img-bolzapp/avatar' + contacts[active].avatar + '.jpg' "
                   alt="img"
                   class="w-100 rounded-circle"
                 />
               </div>
               <div class="_name fs-6">
-                <h2>Michele</h2>
+                <h2>{{contacts[active].name}}</h2>
 
                 <p class="margin_0">Ultimo accesso oggi alle 12:00</p>
               </div>
@@ -145,6 +148,8 @@
               <i class="fa-solid fa-ellipsis-vertical me-3 text-secondary"></i>
             </div>
           </div>
+          <!--/Informazione chat contatto-->
+
           <!--Message-->
           <div class="row height p-3">
             <div class="col-12">
@@ -156,7 +161,7 @@
                   >
                     <div :class="message.status">
                       <p>{{message.message}}</p>
-                      <p class="text-secondary">{{message.date}}</p>
+                      <p class="text-secondary align-self-">{{message.date}}</p>
                     </div>
                   </div>
                 </div>
@@ -186,7 +191,7 @@
           <!--/BARRA PER SCRIVERE NUOVO MESSAGGIO-->
         </div>
 
-        <!--/PARTE MICHELE HEADER DESTRO-->
+        <!--/PARTE CHAT CENTRALE-->
       </div>
     </div>
 

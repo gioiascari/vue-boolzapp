@@ -174,10 +174,16 @@ const app = new Vue({
     active: 0,
   },
   methods: {
+    //con questa funzione si riesce a vedere l'ultimo messaggio ricevuto, nella barra dei contatti
+
     getLastMessage: function (item) {
       const messages = item.messages;
 
       return messages.length > 0 ? messages[messages.length - 1].message : "";
+    },
+    //al click su un'amico si visualizza anche la chat
+    chatActive(index) {
+      this.active = index;
     },
   },
 });
