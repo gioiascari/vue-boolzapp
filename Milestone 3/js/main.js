@@ -187,6 +187,9 @@ const app = new Vue({
     chatActive(index) {
       this.active = index;
     },
+    //Creo una funzione dove al suo interno esiste l'orario corrente del messaggio inviato dall'utente, il messaggio in sè
+    // ed infine la risposta generata dopo 1s tramite il TimeOut
+
     addMessage(chatIndex) {
       const now = new Date();
       const current = now.getHours() + ":" + now.getMinutes();
