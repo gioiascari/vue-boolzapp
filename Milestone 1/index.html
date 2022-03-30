@@ -57,7 +57,7 @@
                 <i class="fa-solid fa-bell-slash"></i>
               </div>
               <div class="row">
-                <div class="col-12 p-2">
+                <div class="col-12">
                   <div class="_name fs-6">
                     <h2>Ricevi notifiche di nuovi messaggi</h2>
                     <a href="#" class="link-dark">
@@ -89,24 +89,33 @@
           <!--/INPUT-->
 
           <div
-            class="row p-2 border border-secondary justify-content-space-between"
+            class="row p-2 border-top secondary"
             v-for="(item, index) in contacts"
           >
-            <div class="col-12 d-flex justify-space-between align-items-center">
-              <div class="img-container align-items-center w_25 me-2">
-                <img
-                  :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
-                  alt="img"
-                  class="w-100 rounded-circle"
-                />
-              </div>
-              <div class="_name fs-6">
-                <h2>{{item.name}}</h2>
+            <div class="col-12 d-flex spaceBetween">
+              <div class="row align-items-center">
+                <div class="col-12 d-flex justify-content-center">
+                  <div class="img-container d-flex align-items-center">
+                    <img
+                      :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
+                      alt="img"
+                      class="w_25 rounded-circle"
+                    />
+                  </div>
+                  <div class="_name fs-6">
+                    <h2>{{item.name}}</h2>
 
-                <p class="margin_0 text-secondary">Ultimo messaggio inviato</p>
+                    <p class="margin_0 text-secondary">
+                      {{getLastMessage(item)}}
+                    </p>
+                  </div>
+                </div>
               </div>
-              <div class="ora text-secondary">
-                <p>12:00</p>
+
+              <div class="row">
+                <div class="col-4 text-secondary">
+                  <p>12:00</p>
+                </div>
               </div>
             </div>
           </div>
@@ -114,7 +123,7 @@
         <!--/PARTE SOFIA-->
         <!--PARTE MICHELE HEADER DESTRO-->
 
-        <div class="col-8 bg-danger d-flex flex-column spaceBetween">
+        <div class="col-8 bg-chat d-flex flex-column spaceBetween">
           <div class="row align-items-center bg-sofia p-2">
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">
@@ -136,24 +145,48 @@
               <i class="fa-solid fa-ellipsis-vertical me-3 text-secondary"></i>
             </div>
           </div>
-          <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
-          <div class="row bg-light p-2 justify-content-center">
-            <div class="col-6 w-100 align-items-center">
-              <div class="row input_search">
-                <div class="input-group col-12 py-2">
-                  <span class="input-group-text bg-white">
-                    <i class="fa-solid fa-magnifying-glass text-secondary"></i>
-                  </span>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Cerca o inizia una nuova chat"
-                  />
+          <!--Message-->
+          <div class="row height p-3">
+            <div class="col-12">
+              <div class="row justify-content-end mb-3">
+                <div class="col-sm-4 sent">
+                  <p>Hai portato fuori il cane?</p>
+                </div>
+              </div>
+              <div class="row justify-content-end mb-3">
+                <div class="col-sm-4 sent">
+                  <p>Ricordati di stendere i panni</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4 received">
+                  <p>Tutto Fatto!</p>
                 </div>
               </div>
             </div>
           </div>
+          <!--/Message-->
+
           <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
+          <div class="row bg-light justify-content-center input_search">
+            <div class="col-12 input-group p_2 me-2">
+              <span class="input-group-text bg-transparent border-0 w_25">
+                <i class="fa-regular fa-face-smile"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control fs-4"
+                placeholder="Scrivi un messaggio"
+                @keyup.enter=""
+              />
+              <span class="input-group-text bg-transparent border-0">
+                <i class="fa-solid fa-microphone"></i>
+              </span>
+            </div>
+          </div>
+
+          <!--/BARRA PER SCRIVERE NUOVO MESSAGGIO-->
         </div>
 
         <!--/PARTE MICHELE HEADER DESTRO-->

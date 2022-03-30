@@ -171,4 +171,11 @@ const app = new Vue({
   data: {
     contacts,
   },
+  methods: {
+    getLastMessage: function (item) {
+      const messages = item.messages;
+
+      return messages.length > 0 ? messages[messages.length - 1].message : "";
+    },
+  },
 });
