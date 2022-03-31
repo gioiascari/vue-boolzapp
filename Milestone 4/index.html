@@ -27,8 +27,8 @@
     <title>Boolzap</title>
   </head>
   <body>
-    <div id="boolzap" class="container p_3" >
-      <div class="row bg-light" :class="{ night: night }">
+    <div id="boolzap" class="container p_3">
+      <div class="row bg-light " :class="{ night: night }">
         <div class="col-4 heigh-1">
           <!--PARTE SOFIA-->
           <div class="row align-items-center p-2 bg-sofia border_right" :class="{ night: night }">
@@ -40,12 +40,12 @@
                   class="w-100 rounded-circle"
                 />
               </div>
-              <div class="_name" :class="{ textwhite : night }">
-                <h2>Sofia</h2>
+              <div class="_name" :class="{ textwhite: night }">
+                <h2 >Sofia</h2>
               </div>
             </div>
             <div class="col-6 d-flex justify-content-end">
-              <i class="far fa-moon" @click="nightMode()"></i>
+              <a href="#"> <i class="far fa-moon me-3" @click="nightMode()"></i></a>
               <a href="#"
                 ><i class="fa-solid fa-spinner me-3 text-secondary"></i
               ></a>
@@ -59,7 +59,7 @@
             </div>
           </div>
           <!--SPAN BLUE-->
-          <div class="row ">
+          <div class="row" >
             <div class="col-12 bg-span p-2 d-flex align-items-center">
               <div class="light-circle bg-light rounded-circle p-2 me-2">
                 <i class="fa-solid fa-bell-slash bg_blue"></i>
@@ -67,7 +67,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="_name fs-6">
-                    <h2 class="margin_0" :class="{ textwhite : night }">Ricevi notifiche di nuovi messaggi</h2>
+                    <h2 class="margin_0">Ricevi notifiche di nuovi messaggi</h2>
                     <a href="#" class="link-secondary">
                       <p class="margin_0">Attiva notifiche dekstop</p>
                     </a>
@@ -78,8 +78,8 @@
           </div>
           <!--/SPAN BLUE-->
           <!--INPUT-->
-          <div class="row":class="{ night: night }" >
-            <div class="col-12 p-2">
+          <div class="row " :class="{ night: night }">
+            <div class="col-12 p-2" :class="{ night: night }">
               <div class="row input_search">
                 <div class="input-group flex-nowrap col-sm-12 py-2">
                   <span class="input-group-text bg-white"
@@ -100,17 +100,18 @@
           </div>
           <!--/INPUT-->
           <!--LISTA CONTATTI-->
-          <div class="row height_prova " :class="{ night: night }">
-            <div class="col-12">
+          <div class="row height_prova"  :class="{ night: night }">
+            <div class="col-12" >
               <div
+              :class="{ textwhite : night }"
                 class="row p-2 border-top secondary hover_gray"
                 v-for="(item, index) in contacts"
                 @click="chatActive(index)"
                 v-if="item.visible"
               >
-                <div class="col-12 d-flex spaceBetween">
-                  <div class="row align-items-center">
-                    <div class="col-12 d-flex">
+                <div class="col-12 d-flex spaceBetween" >
+                  <div class="row align-items-center" >
+                    <div class="col-12 d-flex" >
                       <div class="img-container d-flex align-items-center">
                         <img
                           :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
@@ -118,8 +119,8 @@
                           class="w_25 rounded-circle"
                         />
                       </div>
-                      <div class="_name fs-6">
-                        <h2  :class="{ textwhite : night }">{{item.name}}</h2>
+                      <div class="_name fs-6" >
+                        <h2>{{item.name}}</h2>
 
                         <p class="margin_0 text-secondary">
                           {{getLastMessage(item)}}
@@ -143,8 +144,8 @@
         <!--/PARTE SOFIA-->
         <!--PARTE CHAT CENTRALE-->
         <!--Informazione chat contatto-->
-        <div class="col-8 d-flex flex-column spaceBetween bg-chat heigh-1" :class="{ night: night }">
-          <div class="row align-items-center bg-sofia p-2" :class="{ night: night }">
+        <div class="col-8 d-flex flex-column spaceBetween bg-chat heigh-1"  >
+          <div class="row align-items-center bg-sofia p-2" :class="{ night: night }" >
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">
                 <img
@@ -155,11 +156,11 @@
               </div>
               <div class="_name fs-6">
                 <h2 :class="{ textwhite : night }">{{contacts[active].name}}</h2>
-                
+
                 <p class="margin_0">Ultimo accesso oggi alle 12:00</p>
               </div>
             </div>
-            <div class="col-6 d-flex justify-content-end" :class="{ night: night }">
+            <div class="col-6 d-flex justify-content-end">
               <a href="#">
                 <i class="fa-solid fa-magnifying-glass text-secondary me-3"></i
               ></a>
@@ -174,7 +175,6 @@
           <!--/Informazione chat contatto-->
 
           <!--Message-->
-    
           <div class="row height p-3" :class="night == true ? 'chat-section-night' : 'bg-chat'">
             <div class="col-12">
               <div class="row mb-3 d-flex justify-content-center">
@@ -188,14 +188,11 @@
                         {{message.message}}<i
                           class="fa-solid fa-chevron-down"
                         ></i>
-                        <!--DROPDOWN MESSAGE-->
-                        <div class="deletedMessage"
-                        >
+                        
+                        <div class="deletedMessage">
                           <p>Info</p>
-                          <p @click="deleteMessage(index)"> Cancella Messaggio</p>
+                          <p> Cancella Messaggio</p>
                         </div>
-                        <!--DROPDOWN MESSAGE-->
-
                       </p>
                       <p class="text-secondary align-self-">{{message.date}}</p>
                     </div>
@@ -207,12 +204,12 @@
           <!--/Message-->
 
           <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
-          <div class="row bg-light justify-content-center input_search" :class="{ night: night }">
-            <div class="col-12 input-group p-2 me-2" :class="{ night: night }" > 
+          <div class="row bg-light justify-content-center input_search" >
+            <div class="col-12 input-group p-2 " :class="{ night: night }">
               <span
-                class="input-group-text bg-transparent border-0 w_25 justify-content-center" :class="{ textwhite : night }"
+                class="input-group-text bg-transparent border-0 w_25 justify-content-center"
               >
-                <i class="fa-regular fa-face-smile"></i>
+                <i class="fa-regular fa-face-smile" :class="{ textwhite: night }"></i>
               </span>
               <input
                 type="text"
@@ -224,7 +221,7 @@
               <span
                 class="input-group-text bg-transparent border-0 w_25 justify-content-center"
               >
-                <i class="fa-solid fa-microphone" :class="{ textwhite : night }"></i>
+                <i class="fa-solid fa-microphone" :class="{ textwhite: night }"></i>
               </span>
             </div>
           </div>

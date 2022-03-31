@@ -118,7 +118,11 @@ body {
 .textwhite {
   color: white;
 }
+.textwhite:hover {
+  background-color: rgba(128, 128, 128, 0.467);
 
+  color: white;
+}
 .chat-section-night {
   background-image: url("../img-bolzapp/dark-mode-bg.webp");
   background-size: cover;
