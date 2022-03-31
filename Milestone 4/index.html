@@ -27,11 +27,14 @@
     <title>Boolzap</title>
   </head>
   <body>
-    <div id="boolzap" class="container p_3">
-      <div class="row bg-light " :class="{ night: night }">
-        <div class="col-4 heigh-1">
+    <div id="boolzap" class="container py-4">
+      <div class="row" :class="{ night: night }">
+        <div class="col-4 heigh-1 bg-light">
           <!--PARTE SOFIA-->
-          <div class="row align-items-center p-2 bg-sofia border_right" :class="{ night: night }">
+          <div
+            class="row align-items-center p-2 bg-sofia border_right"
+            :class="{ nightLight : night }"
+          >
             <div class="col-6 d-flex justify-content-start align-items-center">
               <div class="img-container align-items-center w_25 me-2">
                 <img
@@ -41,11 +44,13 @@
                 />
               </div>
               <div class="_name" :class="{ textwhite: night }">
-                <h2 >Sofia</h2>
+                <h2>Sofia</h2>
               </div>
             </div>
             <div class="col-6 d-flex justify-content-end">
-              <a href="#"> <i class="far fa-moon me-3" @click="nightMode()"></i></a>
+              <a href="#">
+                <i class="far fa-moon me-3" @click="nightMode()"></i
+              ></a>
               <a href="#"
                 ><i class="fa-solid fa-spinner me-3 text-secondary"></i
               ></a>
@@ -59,7 +64,7 @@
             </div>
           </div>
           <!--SPAN BLUE-->
-          <div class="row" >
+          <div class="row">
             <div class="col-12 bg-span p-2 d-flex align-items-center">
               <div class="light-circle bg-light rounded-circle p-2 me-2">
                 <i class="fa-solid fa-bell-slash bg_blue"></i>
@@ -78,16 +83,17 @@
           </div>
           <!--/SPAN BLUE-->
           <!--INPUT-->
-          <div class="row " :class="{ night: night }">
+          <div class="row" :class="{ nightLight: night }">
             <div class="col-12 p-2" :class="{ night: night }">
               <div class="row input_search">
                 <div class="input-group flex-nowrap col-sm-12 py-2">
-                  <span class="input-group-text bg-white"
+                  <span class="input-group-text" :class="{ nightLight : night }"
                     ><a href="#">
                       <i class="fa-solid fa-magnifying-glass text-secondary"></i
                     ></a>
                   </span>
                   <input
+                    :class="{ nightLight : night }"
                     type="text"
                     v-model="search"
                     class="form-control"
@@ -100,18 +106,18 @@
           </div>
           <!--/INPUT-->
           <!--LISTA CONTATTI-->
-          <div class="row height_prova"  :class="{ night: night }">
-            <div class="col-12" >
+          <div class="row height_prova" :class="{ night: night }">
+            <div class="col-12">
               <div
-              :class="{ textwhite : night }"
-                class="row p-2 border-top secondary hover_gray"
+                :class="{ textwhite : night }"
+                class="row p-2 hover_gray border_top_secondary"
                 v-for="(item, index) in contacts"
                 @click="chatActive(index)"
                 v-if="item.visible"
               >
-                <div class="col-12 d-flex spaceBetween" >
-                  <div class="row align-items-center" >
-                    <div class="col-12 d-flex" >
+                <div class="col-12 d-flex spaceBetween">
+                  <div class="row align-items-center">
+                    <div class="col-12 d-flex">
                       <div class="img-container d-flex align-items-center">
                         <img
                           :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
@@ -119,10 +125,10 @@
                           class="w_25 rounded-circle"
                         />
                       </div>
-                      <div class="_name fs-6" >
+                      <div class="_name fs-6">
                         <h2>{{item.name}}</h2>
 
-                        <p class="margin_0 text-secondary">
+                        <p class="margin_0 text-secondary fs_6">
                           {{getLastMessage(item)}}
                         </p>
                       </div>
@@ -144,8 +150,11 @@
         <!--/PARTE SOFIA-->
         <!--PARTE CHAT CENTRALE-->
         <!--Informazione chat contatto-->
-        <div class="col-8 d-flex flex-column spaceBetween bg-chat heigh-1"  >
-          <div class="row align-items-center bg-sofia p-2" :class="{ night: night }" >
+        <div class="col-8 d-flex flex-column spaceBetween bg-chat heigh-1">
+          <div
+            class="row align-items-center bg-sofia p-1"
+            :class="{ nightLight : night }"
+          >
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">
                 <img
@@ -155,9 +164,13 @@
                 />
               </div>
               <div class="_name fs-6">
-                <h2 :class="{ textwhite : night }">{{contacts[active].name}}</h2>
+                <h2 :class="{ textwhite : night }">
+                  {{contacts[active].name}}
+                </h2>
 
-                <p class="margin_0">Ultimo accesso oggi alle 12:00</p>
+                <p class="margin_0 text-secondary fs_6">
+                  Ultimo accesso oggi alle 12:00
+                </p>
               </div>
             </div>
             <div class="col-6 d-flex justify-content-end">
@@ -175,7 +188,10 @@
           <!--/Informazione chat contatto-->
 
           <!--Message-->
-          <div class="row height p-3" :class="night == true ? 'chat-section-night' : 'bg-chat'">
+          <div
+            class="row height p-3"
+            :class="night == true ? 'chat-section-night' : 'bg-chat'"
+          >
             <div class="col-12">
               <div class="row mb-3 d-flex justify-content-center">
                 <div class="col-12">
@@ -183,17 +199,8 @@
                     class="d-flex flex-column"
                     v-for="(message,index) in contacts[active].messages"
                   >
-                    <div :class="message.status" class="deletedMessage">
-                      <p>
-                        {{message.message}}<i
-                          class="fa-solid fa-chevron-down"
-                        ></i>
-                        
-                        <div class="deletedMessage">
-                          <p>Info</p>
-                          <p> Cancella Messaggio</p>
-                        </div>
-                      </p>
+                    <div :class="message.status">
+                      <p>{{message.message}}</p>
                       <p class="text-secondary align-self-">{{message.date}}</p>
                     </div>
                   </div>
@@ -204,16 +211,35 @@
           <!--/Message-->
 
           <!--BARRA PER SCRIVERE NUOVO MESSAGGIO-->
-          <div class="row bg-light justify-content-center input_search" >
-            <div class="col-12 input-group p-2 " :class="{ night: night }">
+          <div class="row bg-light justify-content-center input_search">
+            <div class="col-12 input-group p-2" :class="{ nightLight : night }">
+              <div :class="{ nightLight : night }" class="bg_emojy">
+                <div
+                  class="emoji d-flex align-items-center"
+                  :class="{hg: emojiSwitch, night : night}"
+                >
+                  <div
+                    class="emo"
+                    v-for="element in emoji"
+                    @click="insertEmoji(element)"
+                  >
+                    {{element}}
+                  </div>
+                </div>
+              </div>
+
               <span
                 class="input-group-text bg-transparent border-0 w_25 justify-content-center"
               >
-                <i class="fa-regular fa-face-smile" :class="{ textwhite: night }"></i>
+                <i
+                  @click="emojiToggle"
+                  class="fa-regular fa-face-smile text-secondary"
+                ></i>
               </span>
               <input
+                :class="{ nightLight : night }"
                 type="text"
-                class="form-control fs-4"
+                class="form-control"
                 v-model="valueText"
                 placeholder="Scrivi un messaggio"
                 @keyup.enter="addMessage(contacts[active].messages)"
@@ -221,7 +247,10 @@
               <span
                 class="input-group-text bg-transparent border-0 w_25 justify-content-center"
               >
-                <i class="fa-solid fa-microphone" :class="{ textwhite: night }"></i>
+                <i
+                  class="fa-solid fa-microphone text-secondary"
+                  :class="{ textwhite: night }"
+                ></i>
               </span>
             </div>
           </div>

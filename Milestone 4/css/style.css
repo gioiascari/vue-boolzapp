@@ -19,6 +19,9 @@ body {
 .p_3 {
   padding: 40px;
 }
+.fs_6 {
+  font-size: 14px;
+}
 .bg-container {
   background-color: darkgreen;
   height: 200px;
@@ -29,7 +32,7 @@ body {
 }
 
 .w_25 {
-  width: 60px;
+  width: 40px;
 }
 .fa-solid.bg_blue {
   color: lightskyblue;
@@ -100,28 +103,38 @@ body {
   text-align: left;
 }
 .height {
-  height: calc(100% - 142px);
+  height: 100%;
   overflow-y: scroll;
 }
 .heigh-1 {
   height: 90vh;
 }
 .height_prova {
-  height: calc(100% - 213px);
+  height: calc(100% - 192px);
   overflow-y: scroll;
 }
 /*-----------------NIGHT-MODE---------------------------------*/
 .night {
-  background-color: black;
+  background-color: #111b21;
 }
-
+.nightLight {
+  background-color: #202c33;
+}
 .textwhite {
   color: white;
 }
-.textwhite:hover {
-  background-color: rgba(128, 128, 128, 0.467);
-
+.textwhiteb {
   color: white;
+  border-top: 1px solid #2a39428f;
+}
+.textwhiteb:hover,
+.textwhite:hover {
+  background-color: #2a39428f;
+  color: white;
+  border-top: 1px solid #2a39428f;
+}
+.border_top_secondary {
+  border-top: 1px solid gainsboro;
 }
 .chat-section-night {
   background-image: url("../img-bolzapp/dark-mode-bg.webp");
@@ -129,4 +142,24 @@ body {
 }
 .bg-chat {
   background-image: url("../img-bolzapp/mine.jpg");
+}
+.emoji {
+  background-color: #f0f0f0;
+  height: 0px;
+  width: 100%;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  padding: 0 20px;
+}
+.emojy_dark {
+  background-color: #202c33;
+}
+.emo {
+  margin-right: 10px;
+}
+
+.hg {
+  height: 200px;
+  min-height: 200px;
+  padding-top: 15px;
 }

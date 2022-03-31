@@ -170,6 +170,58 @@ const contacts = [
     ],
   },
 ];
+const emoji = [
+  "😀",
+  "😄",
+  "😁",
+  "🤣",
+  "😊",
+  "😇",
+  "🙃",
+  "😉",
+  "😍",
+  "😛",
+  "😡",
+  "😨",
+  "😰",
+  "😥",
+  "😓",
+  "🤗",
+  "🤔",
+  "🤭",
+  "👍",
+  "💪",
+  "👋",
+  "🤚",
+  "✋",
+  "🖖",
+  "👌",
+  "🙏",
+  "☝️",
+  "👻",
+  "👽",
+  "👾",
+  "🤖",
+  "🎃",
+  "👶",
+  "🧒",
+  "👦",
+  "👧",
+  "🧑",
+  "👱",
+  "👨",
+  "🐶",
+  "🐱",
+  "🐭",
+  "🐹",
+  "🐰",
+  "🦊",
+  "🐻",
+  "🐼",
+  "🐨",
+  "🐯",
+  "🦁",
+];
 
 const app = new Vue({
   el: "#boolzap",
@@ -178,6 +230,8 @@ const app = new Vue({
     active: 0,
     valueText: "",
     search: "",
+    emoji,
+    emojiSwitch: false,
     night: false,
   },
   methods: {
@@ -226,6 +280,13 @@ const app = new Vue({
     /*---NIGHT-MODE---- */
     nightMode: function () {
       this.night = !this.night;
+    },
+    //Inserimento emoji
+    emojiToggle() {
+      this.emojiSwitch = !this.emojiSwitch;
+    },
+    insertEmoji(element) {
+      this.valueText = this.valueText + element;
     },
   },
 });
