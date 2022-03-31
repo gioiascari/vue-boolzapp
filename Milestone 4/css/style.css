@@ -3,14 +3,27 @@
   padding: 0;
   margin: 0;
 }
-
+body {
+  background-image: linear-gradient(
+    to bottom,
+    #005b53,
+    #007d5e,
+    #009f59,
+    #53c044,
+    #99dd06
+  );
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 100vh;
+}
+.p_3 {
+  padding: 40px;
+}
 .bg-container {
   background-color: darkgreen;
   height: 200px;
 }
-.bg-chat {
-  background-image: url("../img-bolzapp/mine.jpg");
-}
+
 .margin_0 {
   margin: 0;
 }
@@ -96,4 +109,20 @@
 .height_prova {
   height: calc(100% - 213px);
   overflow-y: scroll;
+}
+/*-----------------NIGHT-MODE---------------------------------*/
+.night {
+  background-color: black;
+}
+
+.textwhite {
+  color: white;
+}
+
+.chat-section-night {
+  background-image: url("../img-bolzapp/dark-mode-bg.webp");
+  background-size: cover;
+}
+.bg-chat {
+  background-image: url("../img-bolzapp/mine.jpg");
 }

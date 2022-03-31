@@ -4,9 +4,9 @@ console.log("Ok Vue Js");
 contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo
 “mar” rimangono solo Marco e Martina)
 Milestone 5 - opzionale
-● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
+- Cancella messaggio: cliccando sul messaggio appare un menu a tendina che
 permette di cancellare il messaggio selezionato
-● Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti*/
+- Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti*/
 const contacts = [
   {
     name: "Michele",
@@ -178,6 +178,7 @@ const app = new Vue({
     active: 0,
     valueText: "",
     search: "",
+    night: false,
   },
   methods: {
     //con questa funzione si riesce a vedere l'ultimo messaggio ricevuto, nella barra dei contatti
@@ -221,6 +222,10 @@ const app = new Vue({
           element.visible = false;
         }
       });
+    },
+    /*---NIGHT-MODE---- */
+    nightMode: function () {
+      this.night = !this.night;
     },
   },
 });
