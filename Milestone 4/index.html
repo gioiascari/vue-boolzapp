@@ -88,7 +88,9 @@
                   </span>
                   <input
                     type="text"
+                    v-model="search"
                     class="form-control"
+                    @input="searchContact()"
                     placeholder="Cerca o inizia una nuova chat"
                   />
                 </div>
@@ -101,6 +103,7 @@
             class="row p-2 border-top secondary hover_gray"
             v-for="(item, index) in contacts"
             @click="chatActive(index)"
+            v-if="item.visible"
           >
             <div class="col-12 d-flex spaceBetween">
               <div class="row align-items-center">

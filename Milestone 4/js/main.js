@@ -173,6 +173,7 @@ const app = new Vue({
     contacts,
     active: 0,
     valueText: "",
+    search: "",
   },
   methods: {
     //con questa funzione si riesce a vedere l'ultimo messaggio ricevuto, nella barra dei contatti
@@ -206,6 +207,16 @@ const app = new Vue({
 
         this.contacts[this.active].messages.push(newReplyMessage);
       }, 1000);
+    },
+    //ricerca utente su lista contatti
+    searchContact() {
+      this.contacts.forEach((element) => {
+        if (element.name.toLowerCase().includes(this.search.toLowerCase())) {
+          element.visible = true;
+        } else {
+          element.visible = false;
+        }
+      });
     },
   },
 });
