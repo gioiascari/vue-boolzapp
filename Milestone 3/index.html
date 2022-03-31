@@ -29,7 +29,7 @@
   <body>
     <div id="boolzap" class="container pt-3">
       <div class="row bg-light">
-        <div class="col-4">
+        <div class="col-4 heigh-1">
           <!--PARTE SOFIA-->
           <div class="row align-items-center p-2 bg-sofia border_right">
             <div class="col-6 d-flex justify-content-start align-items-center">
@@ -97,34 +97,38 @@
           </div>
           <!--/INPUT-->
           <!--LISTA CONTATTI-->
-          <div
-            class="row p-2 border-top secondary hover_gray"
-            v-for="(item, index) in contacts"
-            @click="chatActive(index)"
-          >
-            <div class="col-12 d-flex spaceBetween">
-              <div class="row align-items-center">
-                <div class="col-12 d-flex">
-                  <div class="img-container d-flex align-items-center">
-                    <img
-                      :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
-                      alt="img"
-                      class="w_25 rounded-circle"
-                    />
-                  </div>
-                  <div class="_name fs-6">
-                    <h2>{{item.name}}</h2>
+          <div class="row height_prova">
+            <div class="col-12">
+              <div
+                class="row p-2 border-top secondary hover_gray"
+                v-for="(item, index) in contacts"
+                @click="chatActive(index)"
+              >
+                <div class="col-12 d-flex spaceBetween">
+                  <div class="row align-items-center">
+                    <div class="col-12 d-flex">
+                      <div class="img-container d-flex align-items-center">
+                        <img
+                          :src=" 'img-bolzapp/avatar' + item.avatar + '.jpg' "
+                          alt="img"
+                          class="w_25 rounded-circle"
+                        />
+                      </div>
+                      <div class="_name fs-6">
+                        <h2>{{item.name}}</h2>
 
-                    <p class="margin_0 text-secondary">
-                      {{getLastMessage(item)}}
-                    </p>
+                        <p class="margin_0 text-secondary">
+                          {{getLastMessage(item)}}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              <div class="row">
-                <div class="col-4 text-secondary">
-                  <p>12:00</p>
+                  <div class="row">
+                    <div class="col-4 text-secondary">
+                      <p>12:00</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -135,7 +139,7 @@
         <!--/PARTE SOFIA-->
         <!--PARTE CHAT CENTRALE-->
         <!--Informazione chat contatto-->
-        <div class="col-8 d-flex flex-column spaceBetween bg-chat">
+        <div class="col-8 d-flex flex-column spaceBetween bg-chat heigh-1">
           <div class="row align-items-center bg-sofia p-2">
             <div class="col-6 d-flex">
               <div class="img-container w_25 me-2">

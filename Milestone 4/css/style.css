@@ -93,7 +93,7 @@
 .heigh-1 {
   height: 90vh;
 }
-.hei {
+.height_prova {
   height: calc(100% - 213px);
   overflow-y: scroll;
 }
