@@ -233,15 +233,9 @@ const app = new Vue({
     emoji,
     emojiSwitch: false,
     night: false,
+    msgIndex: null,
   },
   methods: {
-    //con questa funzione si riesce a vedere l'ultimo messaggio ricevuto, nella barra dei contatti
-
-    getLastMessage: function (item) {
-      const messages = item.messages;
-
-      return messages.length > 0 ? messages[messages.length - 1].message : "";
-    },
     //al click su un'amico si visualizza anche la chat
     chatActive(index) {
       this.active = index;
@@ -250,16 +244,14 @@ const app = new Vue({
     // ed infine la risposta generata dopo 1s tramite il TimeOut
 
     addMessage(chatIndex) {
-      const now = new Date();
-      const current = now.getHours() + ":" + now.getMinutes();
       chatIndex.push({
-        date: current,
+        date: `10/01/2020 ${this.hourGenerator()}`,
         message: this.valueText,
         status: "sent",
       });
       setTimeout(() => {
         const newReplyMessage = {
-          date: current,
+          date: `10/01/2020 ${this.hourGenerator()}`,
           message: "Ok",
           status: "received",
         };
@@ -277,6 +269,26 @@ const app = new Vue({
         }
       });
     },
+    //TEMPO-----------------------------------------------
+    getTime: function (time) {
+      return time[time.length - 1].date.slice(11, -3);
+      // let datetime = new Date(date);
+      // let hours = datetime.getHours();
+      // let minutes = datetime.getMinutes();
+      // return `${hours}:${minutes}`;
+    },
+    getLastTime: function (time, i) {
+      return time[i].date.slice(11, -3);
+    },
+    hourGenerator: function () {
+      let today = new Date();
+      let hh = String(today.getHours()).padStart(2, "0");
+      let mm = String(today.getMinutes()).padStart(2, "0");
+      let ss = String(today.getSeconds()).padStart(2, "0");
+      today = hh + ":" + mm + ":" + ss;
+      return today;
+    },
+
     /*---NIGHT-MODE---- */
     nightMode: function () {
       this.night = !this.night;
@@ -287,6 +299,12 @@ const app = new Vue({
     },
     insertEmoji(element) {
       this.valueText = this.valueText + element;
+    },
+
+    //Delete message
+    remove: function (i) {
+      this.contacts[this.active].messages.splice(i, 1);
+      this.msgIndex = -1;
     },
   },
 });

@@ -115,7 +115,10 @@
                 @click="chatActive(index)"
                 v-if="item.visible"
               >
-                <div class="col-12 d-flex spaceBetween">
+                <div
+                  class="col-12 d-flex spaceBetween"
+                  v-if="item.messages.length != 0"
+                >
                   <div class="row align-items-center">
                     <div class="col-12 d-flex">
                       <div class="img-container d-flex align-items-center">
@@ -129,7 +132,7 @@
                         <h2>{{item.name}}</h2>
 
                         <p class="margin_0 text-secondary fs_6">
-                          {{getLastMessage(item)}}
+                          {{item.messages[item.messages.length - 1].message}}
                         </p>
                       </div>
                     </div>
@@ -137,7 +140,7 @@
 
                   <div class="row">
                     <div class="col-4 text-secondary">
-                      <p>12:00</p>
+                      <div class="date-time">{{getTime(item.messages)}}</div>
                     </div>
                   </div>
                 </div>
@@ -169,7 +172,8 @@
                 </h2>
 
                 <p class="margin_0 text-secondary fs_6">
-                  Ultimo accesso oggi alle 12:00
+                  Ultimo accesso oggi alle
+                  {{getTime(contacts[active].messages)}}
                 </p>
               </div>
             </div>
@@ -201,7 +205,9 @@
                   >
                     <div :class="message.status">
                       <p>{{message.message}}</p>
-                      <p class="text-secondary align-self-">{{message.date}}</p>
+                      <p class="text-secondary align-self-">
+                        {{getLastTime(contacts[active].messages, index)}}
+                      </p>
                     </div>
                   </div>
                 </div>
